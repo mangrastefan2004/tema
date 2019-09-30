@@ -23,9 +23,9 @@ class MysqlConfiguration
 }
 
 // Check connection
-$MysqlConfiguration = new MysqlConfiguration();
+$mysqlConfiguration = new MysqlConfiguration();
 
-if (!$MysqlConfiguration) {
+if (!$mysqlConfiguration) {
     die("Connection failed: " . mysqli_connect_error());
         }
 else {
@@ -34,9 +34,9 @@ else {
 
 
 $sql= "INSERT INTO `user` (`nume`, `prenume`) VALUES ('Andrei',' GIGI')";
-if($MysqlConfiguration->getConnection()->query($sql) === TRUE) {
+if($mysqlConfiguration->getConnection()->query($sql) === TRUE) {
     echo "new record created";
-} else { echo "error: " . $sql . "<br>" . $MysqlConfiguration->getConnection()->error;
+} else { echo "error: " . $sql . "<br>" . $mysqlConfiguration->getConnection()->error;
 }
 
 ?>
