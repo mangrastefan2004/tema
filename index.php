@@ -1,6 +1,6 @@
 <?php
 
-include 'database_config.php';
+include 'MysqlConfiguration.php';
 
 ?>
 
