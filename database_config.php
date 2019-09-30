@@ -4,7 +4,7 @@ class database_config
 {
     private $conn;
     public function getConn(){
-        return $conn;
+        $this->conn;
     }
 
 // Create connection
@@ -30,12 +30,12 @@ if (!$connection) {
 else {
     echo "Connected successfully";
     }
-
+var_dump($connection);
 
 $sql= "INSERT INTO `user` (`nume`, `prenume`) VALUES ('Andrei',' GIGI')";
-if($connection->getConn()->mysqli_query($sql) === TRUE) {
+if($connection->getConn()->query($sql) === TRUE) {
     echo "new record created";
-} else { echo "error: " . $sql . "<br>" . $connection->error;
+} else { echo "error: " . $sql . "<br>" . $connection->getConn()->error;
 }
 
 ?>
