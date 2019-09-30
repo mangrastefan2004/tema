@@ -2,9 +2,10 @@
 
 class MysqlConfiguration
 {
-    private $MysqlConnection;
-    public function getMysqlConnection(){
-        return $this->MysqlConnection;
+    private $connection;
+
+    public function getConnection(){
+        return $this->connection;
     }
 
 // Create connection
@@ -15,27 +16,27 @@ class MysqlConfiguration
          $username = "root";
          $password = "";
          $dbname = "db";
-        $this->MysqlConnection = mysqli_connect($servername, $username, $password, $dbname);
+        $this->connection = mysqli_connect($servername, $username, $password, $dbname);
 
     }
 
 }
 
 // Check connection
-$MysqlConfig = new MysqlConfiguration();
+$MysqlConfiguration = new MysqlConfiguration();
 
-if (!$MysqlConfig) {
+if (!$MysqlConfiguration) {
     die("Connection failed: " . mysqli_connect_error());
         }
 else {
     echo "Connected successfully";
     }
-var_dump($MysqlConfig);
+
 
 $sql= "INSERT INTO `user` (`nume`, `prenume`) VALUES ('Andrei',' GIGI')";
-if($MysqlConfig->getMysqlConnection()->query($sql) === TRUE) {
+if($MysqlConfiguration->getConnection()->query($sql) === TRUE) {
     echo "new record created";
-} else { echo "error: " . $sql . "<br>" . $MysqlConfig->getMysqlConnection()->error;
+} else { echo "error: " . $sql . "<br>" . $MysqlConfiguration->getConnection()->error;
 }
 
 ?>
