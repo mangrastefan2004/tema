@@ -1,7 +1,7 @@
 <?php
 
 
-interface iEndpointConfiguration{
+interface UsersControllerInterface{
     public function GetInformation();
     public function PostInformation();
     public function PutInformation();
@@ -9,7 +9,7 @@ interface iEndpointConfiguration{
 
 }
 
-class EndpointConfiguration implements iEndpointConfiguration  {
+class UsersController implements UsersControllerInterface  {
 
 private $configuration;
 
@@ -29,15 +29,20 @@ private $configuration;
     public function DeleteInformation(){
         return $this->configuration;
     }
+
+    public function getUser($username){
+
+        $username= new MysqlConfiguration();
+
+        $sql= "SELECT FROM `user` (`username`)";
+
+        if($username->getUser()->query($sql) === TRUE) {
+
+            var_dump($sql);
+
+        } else { echo "error: " . $sql . "<br>" . $username->getUser()->error;}
+    }
 }
 
 
-$configuration= new MysqlConfiguration();
-$mysqlAlteration= new EndpointConfiguration($configuration);
-
-$sql= "SELECT FROM `user` (`username`)";
-if($mysqlAlteration->GetInformation()->query($sql) === TRUE) {
-    var_dump($sql);
-} else { echo "error: " . $sql . "<br>" . $mysqlAlteration->GetInformation()->error;
-}
 ?>
