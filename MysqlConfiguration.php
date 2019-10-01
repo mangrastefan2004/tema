@@ -33,10 +33,11 @@ else {
     }
 
 
-$sql= "INSERT INTO `user` (`nume`, `prenume`) VALUES ('Andrei',' GIGI')";
+/*$sql= "INSERT INTO `user` (`nume`, `prenume`) VALUES ('Andrei',' GIGI')";
 if($mysqlConfiguration->getConnection()->query($sql) === TRUE) {
     echo "new record created";
 } else { echo "error: " . $sql . "<br>" . $mysqlConfiguration->getConnection()->error;
-}
+} */
+
 
 ?>
